@@ -26,7 +26,8 @@
                 <button type="submit" class="btn btn-default">搜索</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">登录</a></li>
+                <!--点击登录按钮  请求Github的  authorize接口  get请求 发送 四个参数到 Gitbhub   client_id  redirect_uri 都是注册AuthorApp时填写的内容  -->
+                <li><a href="https://github.com/login/oauth/authorize?client_id=742789cdbb1231771ec1&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">我<span class="caret"></span></a>
