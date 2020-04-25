@@ -47,6 +47,7 @@ public class GithubProvider {
             Response response = client.newCall(request).execute();
             //返回的JSON数据
             String string = response.body().string();
+            System.out.println(string);
             //将json数据 解析为 传入的第二个参数类型的 对象
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;
