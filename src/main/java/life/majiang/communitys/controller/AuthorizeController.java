@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class AuthorizeController {
 
@@ -25,7 +27,8 @@ public class AuthorizeController {
 
     @GetMapping("/callback")
     public String callBack(@RequestParam String code,
-                           @RequestParam String state) {
+                           @RequestParam String state,
+                           HttpServletRequest request) {
         AccesstokenDTO accesstokenDTO = new AccesstokenDTO();
         //Client_id  setClient_secret  setRedirect_uri  注册的AuthorApp时都有
         accesstokenDTO.setClient_id(clientId);
@@ -37,7 +40,11 @@ public class AuthorizeController {
         //调用okhttp提供的方法  去发送一个请求  并且请求accesstoken接口  携带code
         String accessToken = githubProvider.getAccessToken(accesstokenDTO);
         GithubUser user = githubProvider.getUser(accessToken);
-        System.out.println(user.getName());
-        return "index";
+        if (user != null) {
+            request.getSession().setAttribute("user",user);
+            return "redirect:/";
+        }else {
+            return "redirect:/";
+        }
     }
 }

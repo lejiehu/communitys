@@ -27,7 +27,7 @@ public class GithubProvider {
             String string = response.body().string();
             //根据获取的字符串 切割 获取 token
             String token = string.split("&")[0].split("=")[1];
-            System.out.println("token = " + token);
+//            System.out.println("token = " + token);
             return token;
         } catch (IOException e) {
             e.printStackTrace();
