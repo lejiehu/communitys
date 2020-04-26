@@ -2,21 +2,17 @@ package life.majiang.communitys.controller;
 
 import life.majiang.communitys.dto.AccesstokenDTO;
 import life.majiang.communitys.dto.GithubUser;
-import life.majiang.communitys.dto.User;
+import life.majiang.communitys.model.User;
 import life.majiang.communitys.mapper.UserMapper;
 import life.majiang.communitys.provider.GithubProvider;
-import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
 import java.util.UUID;
 
 @Controller
@@ -37,7 +33,7 @@ public class AuthorizeController {
 
     @GetMapping("/callback")
     public String callBack(@RequestParam(name = "code") String code,
-                           @RequestParam(name = "state")String state,
+                           @RequestParam(name = "state") String state,
                            HttpServletResponse response) {
         AccesstokenDTO accesstokenDTO = new AccesstokenDTO();
         //Client_id  setClient_secret  setRedirect_uri  注册的AuthorApp时都有
@@ -64,7 +60,7 @@ public class AuthorizeController {
             //数据库存入数据
             userMapper.insert(user);
             //创建Cookie  返回到浏览器token  token  相当于票据 跟sessionID作差不多
-            response.addCookie(new Cookie("token",token));
+            response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
             return "redirect:/";

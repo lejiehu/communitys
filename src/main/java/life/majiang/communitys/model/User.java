@@ -1,4 +1,4 @@
-package life.majiang.communitys.dto;
+package life.majiang.communitys.model;
 
 public class User {
 

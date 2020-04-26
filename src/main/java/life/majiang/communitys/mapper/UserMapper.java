@@ -1,6 +1,6 @@
 package life.majiang.communitys.mapper;
 
-import life.majiang.communitys.dto.User;
+import life.majiang.communitys.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

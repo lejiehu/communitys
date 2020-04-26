@@ -1,12 +1,10 @@
 package life.majiang.communitys.controller;
 
-import life.majiang.communitys.dto.User;
+import life.majiang.communitys.model.User;
 import life.majiang.communitys.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
