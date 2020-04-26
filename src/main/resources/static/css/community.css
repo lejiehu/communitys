@@ -1,0 +1,16 @@
+/*发起 div标签class属性*/
+.main{
+    margin: 30px;
+    background-color: white;
+}
+
+/*body属性*/
+body{
+    background-color: #efefef;
+}
+
+/*发布按钮class属性*/
+.btn-publish{
+    float: right;
+    margin-bottom: 15px;
+}
