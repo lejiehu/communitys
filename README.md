@@ -18,6 +18,7 @@ ssh-keygen - t rsa  密钥保存在C:\Users\10252\.ssh
 
 [H2]http://www.h2database.com/html/main.html
 
+[flyway]https://flywaydb.org/getstarted/firststeps/maven
 
 
 ##  工具
